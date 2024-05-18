@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
-    <ClCompile Include="AssetManager.cpp">
+    <ClCompile Include="GameEngine.cpp">
       <Filter>Исходные файлы</Filter>
     </ClCompile>
   </ItemGroup>
@@ -36,7 +36,7 @@
     <None Include="sfml-window-2.dll" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AssetManager.h">
+    <ClInclude Include="GameEngine.h">
       <Filter>Исходные файлы</Filter>
     </ClInclude>
   </ItemGroup>
