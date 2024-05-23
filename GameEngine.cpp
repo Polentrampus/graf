@@ -43,12 +43,12 @@ void GameEngine::draw()
 {
 	window->clear();
 	window->draw(background);
-	/*for (int i = 0; i < SIZEPOLE; ++i) {
+	for (int i = 0; i < SIZEPOLE; ++i) {
 		for (int j = 0; j < SIZEPOLE; ++j) {
 			window->draw(*cell[i][j].getSprite());
 		}
-	}*/
-	window->draw(*cell[1][2].getSprite());
+	}
+	//window->draw(*cell[1][2].getSprite());
 	window->display();
 }
 void GameEngine::run()
