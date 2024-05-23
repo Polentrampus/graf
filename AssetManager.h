@@ -6,7 +6,7 @@
 
 class AssetManager//мэнеджер рессурсов, для удержания в памяти значений текстур и прочего
 {
-	//класс является синглтоном, так как может иметь лишь один объект 
+	//синглтон
 public:
 	AssetManager();
 	static sf::Texture& GetTexture(std::string const& filename);

@@ -1,10 +1,12 @@
 #include "Cell.h"
 
-Cell::Cell(sf::Vector2f location, const sf::Texture& texture, const sf::Vector2f& size) : size(size) {
-    this->StateCell.setTexture(texture);
-    this->StateCell.setPosition(location);
-    currentSpr = &this->StateCell;
+Cell::Cell(sf::Vector2f location, const sf::Texture& normal, const sf::Texture& clic, const sf::Vector2f& size) : size(size), location(location){
+    this->normal.setTexture(normal);
+    this->clic.setTexture(clic);
+    this->normal.setPosition(location);
+    this->clic.setPosition(location);
     this->setSize(size);
+    currentSpr = &this->normal;
 }
 
 bool Cell::checkClick(sf::Vector2i mousePos)
@@ -20,7 +22,6 @@ bool Cell::checkClick(sf::Vector2i mousePos)
         {
             setState(!current); return true;
         }
-        //if(sprite.getGlobalBounds().contains(sf::Mouse::getPosition(win)))
     }
     else
         if (current) {
@@ -29,21 +30,19 @@ bool Cell::checkClick(sf::Vector2i mousePos)
     return false;
 }
 
-void Cell::setState(bool which)
+void Cell::setState(bool which)//состояние объекта(есть вершина или нет)
 {
     current = which;
 
     if (current)
     {
-        StateCell.setTextureRect(sf::IntRect(0, 0, 50, 50));
-        currentSpr = &StateCell;
+        currentSpr = &clic;
         return;
     }
-    StateCell.setTextureRect(sf::IntRect(50, 0, 50, 50));
-    currentSpr = &StateCell;
+    currentSpr = &normal;
 }
 
-sf::Sprite* Cell::getSprite()
+const sf::Sprite* Cell::getSprite()
 {
-    return &StateCell;
+    return currentSpr;
 }
